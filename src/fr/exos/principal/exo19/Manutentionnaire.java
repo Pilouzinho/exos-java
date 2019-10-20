@@ -1,9 +1,9 @@
-package fr.exos.principa.exo19;
+package fr.exos.principal.exo19;
 
-public class Technicien extends Production {
+public class Manutentionnaire extends Manutention {
 
-	public Technicien(String nom, String prenom, int age, String dateEntree, int unitesProduites) {
-		super(nom, prenom, age, dateEntree, unitesProduites);
+	public Manutentionnaire(String nom, String prenom, int age, String dateEntree, int heuresTravail) {
+		super(nom, prenom, age, dateEntree, heuresTravail);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -15,11 +15,12 @@ public class Technicien extends Production {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Technicien [toString()=");
+		builder.append("Manutentionnaire [toString()=");
 		builder.append(super.toString());
 		builder.append("]");
 		return builder.toString();
 	}
-
 	
+	
+
 }

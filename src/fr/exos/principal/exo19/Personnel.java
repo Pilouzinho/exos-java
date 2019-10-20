@@ -1,4 +1,4 @@
-package fr.exos.principa.exo19;
+package fr.exos.principal.exo19;
 
 import java.util.ArrayList;
 

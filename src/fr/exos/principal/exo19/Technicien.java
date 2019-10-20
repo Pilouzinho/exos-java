@@ -1,21 +1,21 @@
-package fr.exos.principa.exo19;
+package fr.exos.principal.exo19;
 
-public class EmployeProductionARisque extends Production implements EmployesARisques {
+public class Technicien extends Production {
 
-	public EmployeProductionARisque(String nom, String prenom, int age, String dateEntree, int unitesProduites) {
+	public Technicien(String nom, String prenom, int age, String dateEntree, int unitesProduites) {
 		super(nom, prenom, age, dateEntree, unitesProduites);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public double calculerSalaires() {
-		return super.calculerSalaire()+primeRisque;
+		return super.calculerSalaire();
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Technicien à risques [toString()=");
+		builder.append("Technicien [toString()=");
 		builder.append(super.toString());
 		builder.append("]");
 		return builder.toString();
