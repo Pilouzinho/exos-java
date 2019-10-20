@@ -1,0 +1,240 @@
+//PARCVEHICULES V1
+package fr.exos.principal.exo16;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ParcVehicules {
+	private String nom;
+	private ArrayList<Voiture> voitures = new ArrayList<>();
+	private ArrayList<Moto> motos = new ArrayList<>();
+	private ArrayList<Camion> camions = new ArrayList<>();
+	private ArrayList<Tracteur> tracteurs = new ArrayList<>();
+	private String adresse;
+	private String ville;
+	
+	//constructeurs
+	public ParcVehicules(String nom, String adresse, String ville) {
+		super();
+		this.nom = nom;
+		this.adresse = adresse;
+		this.ville = ville;
+	}
+	
+	//accesseurs
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public ArrayList<Voiture> getVoitures() {
+		return voitures;
+	}
+	public void setVoitures(ArrayList<Voiture> voitures) {
+		this.voitures = voitures;
+	}
+	public ArrayList<Moto> getMotos() {
+		return motos;
+	}
+	public void setMotos(ArrayList<Moto> motos) {
+		this.motos = motos;
+	}
+	public ArrayList<Camion> getCamions() {
+		return camions;
+	}
+	public void setCamions(ArrayList<Camion> camions) {
+		this.camions = camions;
+	}
+	public ArrayList<Tracteur> getTracteurs() {
+		return tracteurs;
+	}
+	public void setTracteurs(ArrayList<Tracteur> tracteurs) {
+		this.tracteurs = tracteurs;
+	}
+	public String getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+	public String getVille() {
+		return ville;
+	}
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ParcVehicules [nom=");
+		builder.append(nom);
+		builder.append(", voitures=");
+		builder.append(voitures);
+		builder.append(", motos=");
+		builder.append(motos);
+		builder.append(", camions=");
+		builder.append(camions);
+		builder.append(", tracteurs=");
+		builder.append(tracteurs);
+		builder.append(", adresse=");
+		builder.append(adresse);
+		builder.append(", ville=");
+		builder.append(ville);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	//méthodes	
+	public void afficherParc() {
+		System.out.println("Nombre total de véhicules : ");
+		System.out.println(Vehicule.getQtite());
+		System.out.println("dont : ");
+		System.out.println(Voiture.getQtiteVoit() + "voitures");
+		System.out.println(Moto.getQtiteMoto() + "motos");
+		System.out.println(Camion.getQtiteCamion() + "camions");
+		System.out.println(Tracteur.getQtiteTract() + "tracteurs");
+	}
+	
+	public void ajouterVehicule() {
+		Scanner sc5 = new Scanner(System.in);
+		char ajout, recommencer;
+		char choixAjout;
+		boolean continuer = true;
+		String choix = "1234";
+		do {
+			System.out.println("Voulez-vous ajouter un nouveau Véhicule (O/N)?");
+			ajout = sc5.next().charAt(0);
+			if(ajout == 'O' || ajout == 'o' || ajout == '0') {
+				do {
+					
+					System.out.println("Quel type de véhicule voulez-vous ajouter ?");
+					System.out.println("1 : Voiture");
+					System.out.println("2 : Moto");
+					System.out.println("3 : Camion");
+					System.out.println("4 : Tracteur");
+					choixAjout = sc5.next().charAt(0);
+					do {
+						switch(choixAjout) {
+						case '1':
+							this.voitures.add(new Voiture());
+							break;
+						case '2':
+							this.motos.add(new Moto());
+							break;
+						case '3':
+							this.camions.add(new Camion());
+							break;
+						case '4':
+							this.tracteurs.add(new Tracteur());
+							break;
+						}
+						
+						
+						System.out.println("En ajouter un autre ? (O/N)");
+						recommencer = sc5.next().charAt(0);
+						if(recommencer == 'O' || recommencer == 'o' || recommencer == '0') {
+							continuer = true;
+						}else {
+							continuer = false;
+							System.out.println("Fin de l'ajout de véhicule");
+						}
+					}while(continuer);
+					if(choix.indexOf(choixAjout) == -1) {
+						System.out.println("Merci de choisir taper 1 pour les voitures, 2 pour les motos, 3 pour les camions et 4 pour les tracteurs !");
+					}
+				}while(choix.indexOf(choixAjout) == -1);
+			}
+			choixAjout = 0;
+		}while(ajout == 'O' || ajout == 'o' || ajout == '0');
+		
+	}
+	
+}
+	
+	
+	
+	
+	
+	//CODES D'AJOUT DES VVEHICULES V1
+	public void ajouterVoiture() {
+		Scanner sc = new Scanner(System.in);	
+		boolean continuer = true;
+		char recommencer;
+				
+		do {
+			
+			this.voitures.add(new Voiture());
+			
+			System.out.println("Souhaitez-vous ajouter une nouvelle voiture ? (O/N)");
+			recommencer = sc.next().charAt(0);
+			if(recommencer == 'O' || recommencer == 'o' || recommencer == '0') {
+				continuer = true;
+			}else {
+				continuer = false;
+				System.out.println("Fin de l'ajout de voitures");
+			}
+		}while(continuer);
+	}
+	
+	public void ajouterMoto() {
+		Scanner sc2 = new Scanner(System.in);	
+		boolean continuer = true;
+		char recommencer;
+				
+		do {
+			
+			this.motos.add(new Moto());
+			
+			System.out.println("Souhaitez-vous ajouter une nouvelle moto ? (O/N)");
+			recommencer = sc2.next().charAt(0);
+			if(recommencer == 'O' || recommencer == 'o' || recommencer == '0') {
+				continuer = true;
+			}else {
+				continuer = false;
+				System.out.println("Fin de l'ajout de motos");
+			}
+		}while(continuer);
+	}
+	
+	public void ajouterCamion() {
+		Scanner sc3 = new Scanner(System.in);	
+
+		boolean continuer = true;
+		char recommencer;
+				
+		do {
+			
+			this.camions.add(new Camion());
+			
+			System.out.println("Souhaitez-vous ajouter un nouveau Camion ? (O/N)");
+			recommencer = sc3.next().charAt(0);
+			if(recommencer == 'O' || recommencer == 'o' || recommencer == '0') {
+				continuer = true;
+			}else {
+				continuer = false;
+				System.out.println("Fin de l'ajout de camions");
+			}
+		}while(continuer);
+	}
+	
+	public void ajouterTracteur() {
+		Scanner sc4 = new Scanner(System.in);	
+		boolean continuer = true;
+		char recommencer;
+				
+		do {
+			
+			this.tracteurs.add(new Tracteur());
+			
+			System.out.println("Souhaitez-vous ajouter un nouveau tracteur ? (O/N)");
+			recommencer = sc4.next().charAt(0);
+			if(recommencer == 'O' || recommencer == 'o' || recommencer == '0') {
+				continuer = true;
+			}else {
+				continuer = false;
+				System.out.println("Fin de l'ajout de tracteur");
+			}
+		}while(continuer);
+	}
