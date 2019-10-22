@@ -53,7 +53,14 @@ public class Personne {
 		return builder.toString();
 	}
 	
+	public void modifierPrixAppart(Appart a, double modificateurPrix) {
+		a.setPrix(a.getPrix()+ a.getPrix()*modificateurPrix);
+	}
 	
+	public void vendreAppart(Personne p) {
+		p.setAppart(this.appart);
+		this.appart = null;
+	}
 	
 	
 	
